@@ -1,0 +1,606 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Eyüp Koyun | Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description"
+		content="Eyüp Koyun için GitHub ve LinkedIn bilgilerinden oluşturulmuş kişisel portfolio sitesi." />
+	<meta name="google-site-verification" content="hk-xHrmTF3tv7pB692vNehPnTRxSRbm-8BensLJZxlA" />
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "Person",
+	  "name": "Eyüp Koyun",
+	  "url": "https://eyupkoyun.github.io",
+	  "jobTitle": "Bilgisayar Mühendisi",
+	  "image": "https://avatars.githubusercontent.com/u/149049403?v=4",
+	  "description": "IoT, otonom sistemler ve gömülü AI üzerine odaklanan bir mühendis adayıyım.",
+	  "sameAs": [
+		"https://www.linkedin.com/in/eyupkoyun/",
+		"https://github.com/Eyupkoyun"
+	  ]
+	}
+	</script>
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/premium.css" />
+	<style>
+		#header .logo strong {
+			color: var(--accent);
+		}
+
+		/* Page Specific Banner Styles & Layout Enhancements */
+		#banner .content {
+			display: flex;
+			flex-direction: column;
+			gap: 1.25rem;
+		}
+
+		@media screen and (min-width: 1280px) {
+			#banner {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 4rem;
+			}
+
+			#banner .content {
+				width: 68% !important;
+				flex: 1;
+			}
+
+			#banner .image {
+				width: 32% !important;
+				max-width: 400px;
+				margin: 0 !important;
+				flex-shrink: 0;
+			}
+		}
+
+		@media screen and (min-width: 736px) and (max-width: 1279px) {
+			#banner {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 2.5rem;
+			}
+
+			#banner .content {
+				width: 60% !important;
+				flex: 1;
+			}
+
+			#banner .image {
+				width: 40% !important;
+				max-width: 320px;
+				margin: 0 !important;
+				flex-shrink: 0;
+			}
+		}
+
+		.hero-pill,
+		.skill-tag,
+		.project-tag,
+		.note-chip {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.4rem;
+			padding: 0.4rem 0.8rem;
+			border-radius: 999px;
+			background: var(--accent-soft);
+			border: 1.5px solid #4a5568;
+			color: var(--accent-2);
+			font-size: 0.78rem;
+			font-weight: 700;
+			letter-spacing: 0.02em;
+			transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		/* Koyu temada çerçevelerin her zaman görünür kalması için */
+		[data-theme="dark"] .hero-pill,
+		[data-theme="dark"] .skill-tag,
+		[data-theme="dark"] .project-tag,
+		[data-theme="dark"] .note-chip {
+			border-color: rgba(255, 255, 255, 0.2) !important;
+		}
+
+		.skill-tag:hover {
+			transform: translateY(-2.5px) scale(1.03);
+			border-color: var(--accent) !important;
+			color: var(--accent);
+			background: rgba(31, 111, 235, 0.06);
+			box-shadow: 0 6px 12px var(--shadow-color);
+		}
+
+		.hero-divider {
+			width: 100%;
+			height: 1px;
+			background: rgba(20, 33, 61, 0.15);
+			margin: 2rem 0 1.5rem 0;
+			border: none;
+		}
+
+		[data-theme="dark"] .hero-divider {
+			background: rgba(255, 255, 255, 0.2);
+		}
+
+		.banner-meta,
+		.skill-list,
+		.note-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.65rem;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+
+		.focus-card,
+		.project-card,
+		.profile-card {
+			background: var(--surface);
+			backdrop-filter: blur(14px);
+			border: 1px solid var(--border-color);
+			border-radius: 1.25rem;
+			box-shadow: 0 18px 40px var(--shadow-color);
+			transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease, border-color 0.4s ease;
+		}
+
+		.focus-card:hover,
+		.project-card:hover,
+		.profile-card:hover,
+		.feature-grid article:hover {
+			transform: translateY(-5px) scale(1.01);
+			box-shadow: 0 24px 48px var(--shadow-color);
+		}
+
+
+		.feature-grid,
+		.project-grid,
+		.focus-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1.1rem;
+		}
+
+		.feature-grid article,
+		.project-card,
+		.focus-card,
+		.profile-card {
+			padding: 1.25rem;
+		}
+
+		.feature-grid article h3,
+		.project-card h3,
+		.focus-card h3,
+		.profile-card h3 {
+			margin-bottom: 0.4rem;
+			color: var(--text-strong);
+		}
+
+		.project-card {
+			display: flex;
+			flex-direction: column;
+			gap: 0.9rem;
+		}
+
+		.project-card .actions,
+		.profile-card .actions {
+			margin-top: auto;
+		}
+
+		.profile-frame {
+			padding: 0.85rem;
+			border-radius: 1.4rem;
+			background: linear-gradient(145deg, rgba(31, 111, 235, 0.12), rgba(15, 118, 110, 0.1));
+		}
+
+		.profile-frame img {
+			border-radius: 1rem;
+			object-fit: cover;
+		}
+
+		.note-list {
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+
+		.note-list li {
+			padding: 0.8rem 0.95rem;
+			border-radius: 0.95rem;
+			background: rgba(255, 255, 255, 0.7);
+			color: var(--text-soft);
+			border: 1px solid transparent;
+		}
+
+		[data-theme="dark"] .note-list li {
+			background: rgba(255, 255, 255, 0.05);
+			color: var(--text-strong);
+			border-color: var(--border-color);
+		}
+
+		.sidebar-links {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+
+		.sidebar-links a {
+			color: var(--text-strong);
+			font-weight: 700;
+		}
+
+		@media (max-width: 980px) {
+
+			.feature-grid,
+			.project-grid,
+			.focus-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		@media (max-width: 736px) {
+
+			.feature-grid,
+			.project-grid,
+			.focus-grid {
+				grid-template-columns: 1fr;
+			}
+
+			#banner .content {
+				gap: 1rem;
+			}
+		}
+
+		.reveal.active {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo"><strong data-tr="Eyüp Koyun" data-en="Eyup Koyun">Eyüp
+							Koyun</strong> <span data-tr="Portfolio" data-en="Portfolio">Portfolio</span></a>
+					<ul class="icons">
+						<li><a href="eyupkoyun_cv.pdf" class="cv-button" target="_blank"><i class="fas fa-file-pdf"></i>
+								<span data-tr="CV İndir" data-en="Download CV">CV İndir</span></a></li>
+						<li><button id="lang-toggle" aria-label="Toggle language">TR</button></li>
+						<li><button id="theme-toggle" class="icon solid fa-moon" aria-label="Toggle dark mode"></button>
+						</li>
+						<li><a href="https://github.com/Eyupkoyun" class="icon brands fa-github"><span
+									class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/eyupkoyun/" class="icon brands fa-linkedin-in"><span
+									class="label">LinkedIn</span></a></li>
+					</ul>
+				</header>
+
+				<!-- Banner -->
+				<section id="banner">
+					<div class="content">
+						<header>
+							<span class="hero-pill" data-tr="Bilgisayar Mühendisi"
+								data-en="Computer Engineer">Bilgisayar Mühendisi</span>
+							<h1 id="hero-name">Eyüp Koyun<br />
+								<span id="hero-headline">Yazılım Geliştirme ve Gömülü Sistemler</span>
+							</h1>
+							<p id="hero-intro">Gömülü sistemler, yazılım geliştirme ve yapay zeka alanlarında
+								çalışmalar.</p>
+						</header>
+						<p id="hero-bio">IoT, otonom sistemler ve gömülü AI üzerine odaklanan bir mühendis adayıyım.</p>
+						<h4 style="margin: 1.5rem 0 0.5rem 0; color: var(--text-strong);"
+							data-tr="Yazılım Dilleri ve Teknolojiler" data-en="Programming Languages & Technologies">
+							Yazılım Dilleri ve Teknolojiler</h4>
+						<ul class="banner-meta" id="hero-tags"></ul>
+						<div class="hero-divider"></div>
+						<ul class="actions">
+							<li><a href="projeler.html" class="button big" data-tr="Projelerimi İncele"
+									data-en="View My Projects">Projelerimi İncele</a></li>
+							<li><a href="#about" class="button" data-tr="Hakkımda" data-en="About Me">Hakkımda</a></li>
+						</ul>
+					</div>
+					<span class="image object">
+						<div class="profile-frame">
+							<img id="profile-avatar" src="images/PP.jpg" alt="Eyüp Koyun profil fotoğrafı"
+								loading="lazy" />
+						</div>
+					</span>
+				</section>
+
+				<!-- Section -->
+				<section id="about">
+					<header class="major">
+						<h2 data-tr="Teknik Yetkinlikler ve Öne Çıkan Çalışmalar"
+							data-en="Technical Competencies & Featured Studies">Teknik Yetkinlikler ve Öne Çıkan
+							Çalışmalar</h2>
+					</header>
+					<div class="mission-statement reveal">
+						<h3 data-tr="Ben Kimim?" data-en="Who Am I?">Ben Kimim?</h3>
+						<p data-tr="Gömülü sistemler, bilgisayarlı görü ve otonom araç teknolojileri alanında uzmanlaşmakta olan bir Bilgisayar Mühendisliği öğrencisiyim. Donanım-yazılım etkileşimi, real-time sistemler ve yapay zeka modellerinin sahaya entegrasyonu konularında güçlü teknik altyapıya sahibim. İnovatif projeler geliştirme, sistem optimizasyonu ve ileri seviye teknik çözümleme yetkinliklerini profesyonel iş hayatına taşımayı amaçlamaktayım."
+							data-en="I am a Computer Engineering student specializing in embedded systems, computer vision, and autonomous vehicle technologies. I have a strong technical background in hardware-software interaction, real-time systems, and the integration of artificial intelligence models into the field. I aim to bring my capabilities in developing innovative projects, system optimization, and advanced technical analysis into professional business life.">
+							Gömülü sistemler, bilgisayarlı görü ve otonom araç teknolojileri alanında uzmanlaşmakta olan
+							bir Bilgisayar Mühendisliği öğrencisiyim. Donanım-yazılım etkileşimi, real-time sistemler ve
+							yapay zeka modellerinin sahaya entegrasyonu konularında güçlü teknik altyapıya sahibim.
+							İnovatif projeler geliştirme, sistem optimizasyonu ve ileri seviye teknik çözümleme
+							yetkinliklerini profesyonel iş hayatına taşımayı amaçlamaktayım.</p>
+					</div>
+				</section>
+
+				<!-- Section -->
+				<section id="projects">
+					<header class="major">
+						<h2 data-tr="Akademik Yayınlar ve Endüstriyel Projeler"
+							data-en="Academic Publications & Industrial Projects">Akademik Yayınlar ve Endüstriyel
+							Projeler</h2>
+					</header>
+					<div class="posts" id="recent-projects"></div>
+				</section>
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+				<!-- Profile -->
+				<section id="profile" class="profile-card">
+					<header class="major">
+						<h2 data-tr="Kısa Profil" data-en="Short Profile">Kısa Profil</h2>
+					</header>
+					<ul class="note-list" id="summary-points"></ul>
+				</section>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2 data-tr="Menü" data-en="Menu">Menü</h2>
+					</header>
+					<ul>
+						<li><a href="index.html" class="active"><i class="fas fa-home"></i> <span data-tr="Ana Sayfa"
+									data-en="Home">Ana Sayfa</span></a></li>
+						<li><a href="projeler.html"><i class="fas fa-project-diagram"></i> <span data-tr="Projeler"
+									data-en="Projects">Projeler</span></a></li>
+						<li><a href="kariyer.html"><i class="fas fa-briefcase"></i> <span data-tr="Kariyer Geçmişi"
+									data-en="Career">Kariyer Geçmişi</span></a></li>
+						<li><a href="certificates.html"><i class="fas fa-certificate"></i> <span
+									data-tr="Sertifikalar ve Belgeler" data-en="Certificates">Sertifikalar ve
+									Belgeler</span></a></li>
+						<li><a href="articles.html"><i class="fas fa-file-alt"></i> <span
+									data-tr="Makaleler ve Yayınlar" data-en="Publications">Makaleler ve
+									Yayınlar</span></a></li>
+						<li><a href="teknofest.html"><i class="fas fa-rocket"></i> <span data-tr="TEKNOFEST"
+									data-en="TEKNOFEST">TEKNOFEST</span></a></li>
+						<li><a href="referanslar.html"><i class="fas fa-user-tie"></i> <span data-tr="Referanslar"
+									data-en="References">Referanslar</span></a></li>
+					</ul>
+				</nav>
+
+				<!-- Section -->
+				<section id="focus">
+					<header class="major">
+						<h2 data-tr="Beceriler" data-en="Skills">Beceriler</h2>
+					</header>
+					<div class="focus-grid" id="focus-grid"></div>
+				</section>
+
+				<!-- Section -->
+				<section id="contact">
+					<header class="major">
+						<h2 data-tr="İletişim Bilgileri" data-en="Contact">İletişim Bilgileri</h2>
+					</header>
+					<p id="contact-text">Yeni proje fikirleri, iş birlikleri veya teknik görüşmeler için GitHub ve
+						LinkedIn üzerinden ulaşılabilir.</p>
+					<ul class="contact">
+						<li class="icon brands fa-github"><a
+								href="https://github.com/Eyupkoyun">github.com/Eyupkoyun</a></li>
+						<li class="icon brands fa-linkedin-in"><a
+								href="https://www.linkedin.com/in/eyupkoyun/">linkedin.com/in/eyupkoyun</a>
+						</li>
+						<li class="icon solid fa-briefcase" data-tr="Portfolyo ve kişisel site alanı"
+							data-en="Portfolio and personal website">Portfolyo ve kişisel site alanı</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright" data-tr="&copy; 2026 Eyüp Koyun. Tüm hakları saklıdır."
+						data-en="&copy; 2026 Eyup Koyun. All rights reserved.">&copy; 2026 Eyüp Koyun.
+						Public profile data from GitHub and LinkedIn.
+						Theme adapted from <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="portfolio-data.js"></script>
+	<script>
+		(function () {
+			const profile = window.portfolioProfile;
+			if (!profile) return;
+
+			document.title = profile.name + ' | Portfolio';
+			const desc = document.querySelector('meta[name="description"]');
+			if (desc) desc.setAttribute('content', profile.intro);
+
+			// Hero text — set data-tr/data-en so lang toggle works
+			const heroHeadline = document.getElementById('hero-headline');
+			if (heroHeadline) {
+				heroHeadline.setAttribute('data-tr', profile.headline);
+				heroHeadline.setAttribute('data-en', profile.headlineEn || profile.headline);
+				heroHeadline.textContent = profile.headline;
+			}
+
+			const heroIntro = document.getElementById('hero-intro');
+			if (heroIntro) {
+				heroIntro.setAttribute('data-tr', profile.intro);
+				heroIntro.setAttribute('data-en', profile.introEn || profile.intro);
+				heroIntro.textContent = profile.intro;
+			}
+
+			const heroBio = document.getElementById('hero-bio');
+			if (heroBio) {
+				heroBio.setAttribute('data-tr', profile.bio);
+				heroBio.setAttribute('data-en', profile.bioEn || profile.bio);
+				heroBio.textContent = profile.bio;
+			}
+
+			const avatar = document.getElementById('profile-avatar');
+			if (avatar) {
+				avatar.src = profile.avatar;
+				avatar.alt = profile.name + ' profil fotoğrafı';
+			}
+
+			const heroTags = document.getElementById('hero-tags');
+			if (heroTags) {
+				heroTags.innerHTML = profile.skills.map(function (skill) {
+					return '<li><span class="skill-tag">' + skill + '</span></li>';
+				}).join('');
+			}
+
+			const recentProjects = document.getElementById('recent-projects');
+			if (recentProjects && profile.articles) {
+				recentProjects.innerHTML = profile.articles.map(function (item, index) {
+					return `
+					<article class="project-card reveal" style="transition-delay: ${(index % 4) * 0.1}s">
+						<span class="project-tag" data-tr="${item.publisher}" data-en="${item.publisherEn || item.publisher}">${item.publisher}</span>
+						<h3 data-tr="${item.title}" data-en="${item.titleEn || item.title}">${item.title}</h3>
+						<p data-tr="${item.description}" data-en="${item.descriptionEn || item.description}">${item.description}</p>
+						<ul class="actions">
+							<li><a class="button" href="${item.url}" data-tr="Projeyi Gör" data-en="View Project">Projeyi Gör</a></li>
+						</ul>
+					</article>`;
+				}).join('');
+			}
+
+			const summaryPoints = document.getElementById('summary-points');
+			if (summaryPoints && profile.summaryPoints) {
+				summaryPoints.innerHTML = profile.summaryPoints.map(function (p) {
+					return `<li data-tr="${p.tr || p}" data-en="${p.en || p}">${p.tr || p}</li>`;
+				}).join('');
+			}
+
+			const focusGrid = document.getElementById('focus-grid');
+			if (focusGrid && profile.currentFocus) {
+				focusGrid.innerHTML = profile.currentFocus.map(function (item) {
+					const tr = item.tr || item;
+					const en = item.en || item;
+					return `<article class="focus-card"><p data-tr="${tr}" data-en="${en}">${tr}</p></article>`;
+				}).join('');
+			}
+
+			const contactText = document.getElementById('contact-text');
+			if (contactText) {
+				contactText.setAttribute('data-tr', profile.contactText);
+				contactText.setAttribute('data-en', profile.contactTextEn || profile.contactText);
+				contactText.innerHTML = profile.contactText;
+			}
+
+			// Typewriter effect — clears INSIDE the timeout so applyLanguage runs first
+			const headlineEl = document.getElementById('hero-headline');
+			if (headlineEl && profile.headline) {
+				const lang = localStorage.getItem('lang') || 'tr';
+				const text = lang === 'en' ? (profile.headlineEn || profile.headline) : profile.headline;
+				setTimeout(function () {
+					headlineEl.textContent = ''; // clear AFTER applyLanguage has run
+					let i = 0;
+					function typeChar() {
+						if (i < text.length) {
+							headlineEl.textContent += text.charAt(i);
+							i++;
+							setTimeout(typeChar, 40);
+						}
+					}
+					typeChar();
+				}, 300);
+			}
+
+			// Trigger language update after all dynamic content is injected
+			if (window.applyLanguage) window.applyLanguage();
+		})();
+
+		// Theme Toggle
+		(function () {
+			const themeToggle = document.getElementById('theme-toggle');
+			const savedTheme = localStorage.getItem('theme');
+			if (savedTheme) {
+				document.documentElement.setAttribute('data-theme', savedTheme);
+				if (savedTheme === 'dark' && themeToggle) themeToggle.classList.replace('fa-moon', 'fa-sun');
+			} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-theme', 'dark');
+				if (themeToggle) themeToggle.classList.replace('fa-moon', 'fa-sun');
+			}
+			if (themeToggle) {
+				themeToggle.addEventListener('click', function () {
+					let theme = 'light';
+					if (document.documentElement.hasAttribute('data-theme')) {
+						document.documentElement.removeAttribute('data-theme');
+						themeToggle.classList.replace('fa-sun', 'fa-moon');
+					} else {
+						document.documentElement.setAttribute('data-theme', 'dark');
+						themeToggle.classList.replace('fa-moon', 'fa-sun');
+						theme = 'dark';
+					}
+					localStorage.setItem('theme', theme);
+				});
+			}
+		})();
+
+		// Scroll Reveal
+		(function () {
+			const obs = new IntersectionObserver(function (entries, o) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('active');
+						o.unobserve(entry.target);
+					}
+				});
+			}, { root: null, rootMargin: '0px', threshold: 0.1 });
+
+			document.addEventListener('DOMContentLoaded', function () {
+				document.querySelectorAll('section, .project-card, .feature-grid article, .focus-card').forEach(function (el, idx) {
+					el.classList.add('reveal');
+					if (el.classList.contains('project-card')) {
+						el.style.transitionDelay = (idx % 4) * 0.1 + 's';
+					}
+					obs.observe(el);
+				});
+				const banner = document.getElementById('banner');
+				if (banner) banner.classList.add('active');
+			});
+		})();
+	</script>
+	<script src="assets/js/global-lang.js"></script>
+	<script src="assets/js/dynamic-bg.js"></script>
+
+</body>
+
+</html>
